@@ -3,16 +3,16 @@ public class Employee {
     private String middleName;
     private String lastName;
     private int salary;
-    private int dept;
+    private int department;
     private int id;
     private static int idCounter;
 
-    public Employee(String lastName, String middleName, String firstName, int salary, int dept) {
+    public Employee(String lastName, String middleName, String firstName, int salary, int department) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.salary = salary;
-        this.dept = dept;
+        this.department = department;
         this.id = idCounter;
         idCounter++;
     }
@@ -30,7 +30,7 @@ public class Employee {
     }
 
     public int getDept() {
-        return dept;
+        return department;
     }
 
     public int getId() {
@@ -66,8 +66,8 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public void setDept(int dept) {
-        this.dept = dept;
+    public void setDept(int department) {
+        this.department = department;
     }
 
     public void setSalary(int salary) {
@@ -81,7 +81,7 @@ public class Employee {
                 " Отчество: " + middleName + '\'' +
                 " Фамилия: " + lastName + '\'' +
                 ", зарплата=" + salary +
-                ", отдел=" + dept +
+                ", отдел=" + department +
                 ", id=" + id +
                 ", idCounter=" + idCounter +
                 '}';

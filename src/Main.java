@@ -2,99 +2,89 @@ import java.text.DecimalFormat;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        EmployeeBook eo = new EmployeeBook();
+        EmployeeBook a = new EmployeeBook();
 
-        for (int i = 0; i < eo.getEmployees().length; i++) {
-            eo.addEmployee(EmployeeBook.randomLastNameGeneration(eo.getManOrWomen()),
-                    EmployeeBook.randomFirstNameGeneration(eo.getManOrWomen()),
-                    EmployeeBook.randomMiddleNameGeneration(eo.getManOrWomen()),
+        for (int i = 0; i < a.getEmployees().length; i++) {
+            a.addEmployee(EmployeeBook.randomLastNameGeneration(a.getManOrWomen()),
+                    EmployeeBook.randomFirstNameGeneration(a.getManOrWomen()),
+                    EmployeeBook.randomMiddleNameGeneration(a.getManOrWomen()),
                     EmployeeBook.randomNumGenerator(50_000) + 70_000,
                     EmployeeBook.randomNumGenerator(6));
         }
 
-
-
-        System.out.println(eo.toString().toString());
-
+        System.out.println(a.toString().toString());
 
         System.out.println("Месячная сумма затрат на зарплаты");
-        System.out.println(new DecimalFormat("###,###").format(eo.monthSumSalary()) + " pублей");
+        System.out.println(new DecimalFormat("###,###").format(a.monthSumSalary()) + " pублей");
         System.out.println();
 
-
         System.out.println("Сотрудник с минимальной зарплатой");
-        eo.findAndPrintEmployeeById(eo.findEmployeesIdMinimalSalary());
+        a.findAndPrintEmployeeById(a.findEmployeesIdMinimalSalary());
         System.out.println();
 
 
         System.out.println("Сотрудник с максимальной зарплатой");
-        eo.findAndPrintEmployeeById(eo.findEmployeesIdMaximalSalary());
+        a.findAndPrintEmployeeById(a.findEmployeesIdMaximalSalary());
         System.out.println();
 
 
         System.out.println("Среднее значение зарплат");
         System.out.println(new DecimalFormat("###,###.##").
-                format(eo.monthMiddleSalary(eo.monthSumSalary())) + " pублей");
+                format(a.monthMiddleSalary(a.monthSumSalary())) + " pублей");
         System.out.println();
 
 
-        System.out.println("ФИО всех сотрудников");
-        eo.printAllEmployees();
+        System.out.println("Ф.И.О всех сотрудников");
+        a.printAllEmployees();
         System.out.println();
 
 
         System.out.println("Индексация зарплаты на стандартную величину 3,5%");
-        eo.salaryIndexing();
-        eo.printAllEmployees();
+        a.salaryIndexing();
+        a.printAllEmployees();
         System.out.println();
 
 
         System.out.println("Индексация зарплаты на заданную величину");
-        eo.salaryIndexingWithParam(12.6);
-        eo.printAllEmployees();
+        a.salaryIndexingWithParam(12.6);
+        a.printAllEmployees();
         System.out.println();
 
 
         System.out.println("Средняя зарплата по отделу");
-        if (eo.middleSalaryById(1) != -1) {
+        if (a.middleSalaryById(1) != -1) {
             System.out.println(new DecimalFormat("###,###.##").
-                    format(eo.middleSalaryById(1)) + " рублей");
+                    format(a.middleSalaryById(1)) + " рублей");
         }else {
             System.out.println("Отдела с таким номером не существует. Введите другой номер.");
         }
         System.out.println();
 
-
         System.out.println("Все сотрудники без отделов");
-        eo.printAllEmployeesWithoutDept();
+        a.printAllEmployeesWithoutDept();
         System.out.println();
-
 
         System.out.println("Все сотрудники с зарплатой меньше определенного числа");
-        eo.salaryLessThan(110_000);
+        a.salaryLessThan(110_000);
         System.out.println();
-
 
         System.out.println("Все сотрудники с зарплатой выше определенного числа");
-        eo.salaryMoreThan(110_000);
+        a.salaryMoreThan(110_000);
         System.out.println();
-
 
         System.out.println("Исходный список сотрудников");
-        eo.printAllEmployees();
-        eo.changeEmployee(1, 5, -1);
+        a.printAllEmployees();
+        a.changeEmployee(1, 5, -1);
         System.out.println();
         System.out.println("Изменяем отдел");
-        eo.printAllEmployees();
+        a.printAllEmployees();
         System.out.println();
         System.out.println("Изменяем зарплату");
-        eo.changeEmployee(1, -1, 60_000);
-        eo.printAllEmployees();
+        a.changeEmployee(1, -1, 60_000);
+        a.printAllEmployees();
         System.out.println();
 
-
         System.out.println("Список отделов и сотрудников принадлежащих этим отделам");
-        eo.printEmployeeAccordingToDept();
-
+        a.printEmployeeAccordingToDept();
     }
 }

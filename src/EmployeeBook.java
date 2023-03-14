@@ -18,11 +18,11 @@ public class EmployeeBook {
                 '}';
     }
 
-    public void addEmployee(String lastName, String middleName, String firstName, int salary, int dept) {
+    public void addEmployee(String lastName, String middleName, String firstName, int salary, int department) {
         if (idCounter >= employees.length) {
             System.out.println("Нельзя добавить работника, закончилось место");
         }
-        Employee newEmployee = new Employee(lastName, middleName, firstName, salary, dept);
+        Employee newEmployee = new Employee(lastName, middleName, firstName, salary, department);
         employees[idCounter++] = newEmployee;
     }
 

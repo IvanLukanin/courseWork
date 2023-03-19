@@ -225,9 +225,8 @@ public class EmployeeBook {
 
     public int findEmployeesIdMinimalSalary() throws Exception {
         if (employees == null) {
-            throw new Exception ("В базе отсутствуют сотрудники");
         }
-        int min = employees[0].getSalary();
+        int min = employees[1].getSalary();
         int idEmployee = 0;
         for (int i = 0; i < idCounter; i++) {
             if (employees[i].getSalary() <= min) {
@@ -270,19 +269,16 @@ public class EmployeeBook {
         return (double) sum / idCounter;
     }
 
-    public double middleSalaryById(int idOfEmployee) {
+    public double middleDepartSalary(int departId) {
         int sumSalaries = 0;
         int deptsCounter = 0;
         for (int i = 0; i < idCounter; i++) {
-            if (employees[i].getDept() == idOfEmployee) {
+            if (employees[i].getDept() == departId) {
                 sumSalaries = employees[i].getSalary() + sumSalaries;
                 deptsCounter++;
             }
-            if (sumSalaries == 0) {
-                return -1;
-            }
         }
-        return (double) sumSalaries / deptsCounter;
+        return sumSalaries == 0 ? -1 : (double) sumSalaries / deptsCounter;
     }
 
     public static int getIdCounter() {

@@ -52,9 +52,9 @@ public class Main {
 
 
         System.out.println("Средняя зарплата по отделу");
-        if (a.middleSalaryById(1) != -1) {
+        if (a.middleDepartSalary(1) != -1) {
             System.out.println(new DecimalFormat("###,###.##").
-                    format(a.middleSalaryById(1)) + " рублей");
+                    format(a.middleDepartSalary(1)) + " рублей");
         }else {
             System.out.println("Отдела с таким номером не существует. Введите другой номер.");
         }
